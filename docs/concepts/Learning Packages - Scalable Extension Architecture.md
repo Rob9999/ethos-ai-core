@@ -314,10 +314,10 @@ GET /api/learning/career-level
 
 | Phase | KW | Deliverable |
 |---|---|---|
-| **L1** | KW 13 | `ethos_ai/learning/package_manager.py` — Package Manager |
-| **L2** | KW 13 | `ethos_ai/learning/package_registry.py` — Registry Client |
-| **L3** | KW 14 | `ethos_ai/learning/package_installer.py` — Installer + Verifier |
-| **L4** | KW 14 | `ethos_ai/learning/assessment_engine.py` — Prüfungssystem |
+| **L1** | KW 13 | `learning/package_manager` module — Package Manager |
+| **L2** | KW 13 | `learning/package_registry` module — Registry Client |
+| **L3** | KW 14 | `learning/package_installer` module — Installer + Verifier |
+| **L4** | KW 14 | `learning/assessment_engine` module — Prüfungssystem |
 | **L5** | KW 15 | 3 initiale Packages erstellen (math, physics, mech-eng) |
 | **L6** | KW 15 | API-Endpoints + Tests (≥ 30 Tests) |
 | **L7** | KW 16 | Registry-Server Setup (Hetzner, FastAPI) |

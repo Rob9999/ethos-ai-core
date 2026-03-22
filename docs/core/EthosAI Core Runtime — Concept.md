@@ -9,7 +9,7 @@
 | Since       | v1.82.0              |
 | Author      | EthosAI Architecture |
 | Date        | 2026-03-22           |
-| Backlog     | BL-333, BL-358–BL-363 |
+| Backlog     | (internal tracking), (internal tracking) |
 | Releases    | v1.93.0 (Phase 1), v1.94.0 (Phase 2) |
 
 ---
@@ -31,7 +31,7 @@ package (170+ modules, ML models, LLM Router, SimGrid, Professions,
 CLIM Stack) is **never** shipped with Worlds — it is a separate
 system, a separate citizen, a separate product.
 
-Today the bundle script (`scripts/build_worlds_bundle.py`) copies the
+Today the bundle script (build script (build_worlds_bundle.py)) copies the
 required files as a **Core-Subset** into the delivery archive.  This
 works, but the subset is defined implicitly (a file list in the build
 script) and grows ad-hoc.
@@ -105,7 +105,7 @@ This is needed by `app_factory.mount_worlds()`.  It has zero
 │  EthosAI Worlds         │                            │
 │    api/ (standalone_app, routers)                     │
 │    ui/  (SPA, Three.js, components)                  │
-│    toolboxes/ (WorldManager)                         │
+│    toolbox-packages/ (WorldManager)                  │
 └──────────────────────────────────────────────────────┘
 ```
 
@@ -115,7 +115,7 @@ This is needed by `app_factory.mount_worlds()`.  It has zero
 
 **Phase 0 — Core-Subset via Bundle Script**
 
-The build script `scripts/build_worlds_bundle.py` defines
+The build script build script (build_worlds_bundle.py) defines
 `ETHOSAI_CORE_FILES` — a list of individual files copied into
 `app/ethos_ai/` in the delivery archive.  This preserves the import
 structure (`from ethos_ai.api.auth import Role`) without any code
@@ -141,7 +141,7 @@ full CLIM is not present.
 
 ### Phase 1 — Formal Package Boundary (Sprint: v1.93.0) ✅
 
-- [x] Create `ethos_ai/core/` sub-package with `__init__.py` that
+- [x] Create `core/` package sub-package with `__init__.py` that
       re-exports all core symbols
 - [x] Add a `core_manifest.json` listing all core modules (machine
       readable), consumed by the bundle script
@@ -191,8 +191,8 @@ full CLIM is not present.
 | # | Question | Status |
 |---|----------|--------|
 | Q1 | Should `models.py` be trimmed to only the 4 models needed by Worlds? | Open |
-| Q2 | Should `toolboxes/world_framework/` move into `ethos_ai_worlds/`? | Open |
-| Q3 | Namespace package (`ethos_ai.core`) vs. separate top-level (`ethosai_core`)? | **Resolved** — `ethos_ai-core` distribution installs into the `ethos_ai` namespace, preserving all existing import paths.  Build script in `scripts/build_core_package.py` assembles core files from `core_manifest.json`. |
+| Q2 | Should `world_framework-toolbox/` move into `ethos_ai_worlds/`? | Open |
+| Q3 | Namespace package (`ethos_ai.core`) vs. separate top-level (`ethosai_core`)? | **Resolved** — `ethos_ai-core` distribution installs into the `ethos_ai` namespace, preserving all existing import paths.  Build script in build script (build_core_package.py) assembles core files from `core_manifest.json`. |
 | Q4 | Does `app_factory.py` (450 LOC) need slimming — e.g. WebSocket code into Worlds? | Open |
 
 ---
@@ -215,10 +215,10 @@ For `ethos-ai-world-sdk` the following artifacts must be extracted
 
 | Artifact                       | Source in core_manifest.json          | Notes |
 |--------------------------------|---------------------------------------|-------|
-| ABC interfaces (`WorldBase`, …)| `toolboxes/world_framework/world_packs.py` | Abstract base classes only |
+| ABC interfaces (`WorldBase`, …)| `toolbox-packages/world_framework/world_packs.py` | Abstract base classes only |
 | Manifest JSON-Schema           | `core_manifest.json`                  | Machine-readable core module list |
-| MCP Tool schema stubs          | `ethos_ai/tool/`                      | Public tool descriptions, no impl |
-| Pydantic request/response      | `ethos_ai/api/models.py`             | LoginRequest, HealthResponse, etc. |
+| MCP Tool schema stubs          | `tool/` package                      | Public tool descriptions, no impl |
+| Pydantic request/response      | `api/models` module             | LoginRequest, HealthResponse, etc. |
 
 The extraction script (future) reads `core_manifest.json` and produces
 a slim `ethos_ai_sdk` wheel with interfaces only — no implementation
@@ -259,7 +259,7 @@ Before the Core Runtime can be offered under a commercial license
 3. **Trademark notice** in README and wheel metadata:
    `EthosAI™ is a registered trademark of Robert Alexander Massinger`
 4. **Bereinigung** (sanitization) of this concept document:
-   - Remove internal backlog references (BL-333)
+   - Remove internal backlog references ((internal tracking))
    - Remove absolute file paths
    - Remove internal LOC counts from public-facing docs
    - Keep only the public API surface description
@@ -268,7 +268,7 @@ Before the Core Runtime can be offered under a commercial license
 
 | Rule (from IP-Klassifikation §4) | Status in this doc | Action needed |
 |----------------------------------|--------------------|---------------|
-| No internal ticket IDs in public docs | ⚠ BL-333 in §1 table | Remove before public release |
+| No internal ticket IDs in public docs | ⚠ (internal tracking) in §1 table | Remove before public release |
 | No absolute file paths           | ✅ Relative paths only | — |
 | No internal LOC counts           | ⚠ LOC column in §2.1 | Strip from public version |
 | License header in source files   | ⬜ Not yet added   | Phase 3 task |

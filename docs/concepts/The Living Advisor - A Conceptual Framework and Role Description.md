@@ -175,12 +175,12 @@ im Engineer-Kontext besondere Relevanz:
 
 | Komponente                | Datei / Modul                       | Status    |
 |---------------------------|-------------------------------------|-----------|
-| Advisor-Basisklasse       | `individual/advisor.py`             | ✅ vorhanden |
-| Rollen-Registry           | `data/agent_registry.json`          | ✅ vorhanden |
-| RBAC (JWT)                | `security/auth_manager.py`          | ✅ vorhanden |
-| Career-Level-Enum         | `individual/career_level.py`        | 🔲 v1.5.0   |
-| Maturity→Career Mapping   | `state/maturity_career_mapper.py`   | 🔲 v1.5.0   |
-| Advisor↔Engineer Sync     | `individual/dual_role_manager.py`   | 🔲 v1.5.0   |
+| Advisor-Basisklasse       | `individual/advisor` module             | ✅ vorhanden |
+| Rollen-Registry           | Agent Registry (JSON)               | ✅ vorhanden |
+| RBAC (JWT)                | `security/auth_manager` module          | ✅ vorhanden |
+| Career-Level-Enum         | `individual/career_level` module        | 🔲 v1.5.0   |
+| Maturity→Career Mapping   | `state/maturity_career_mapper` module   | 🔲 v1.5.0   |
+| Advisor↔Engineer Sync     | `individual/dual_role_manager` module   | 🔲 v1.5.0   |
 
 > **Querverweis:** Karrierepfad-Details → [Maturity Model](Maturity%20Model%20-%20Multi-Dimensional%20Growth%20Architecture.md),
 > Sicherheitsmodell → [Security & NDA](Security%20und%20Geheimhaltung%20-%20Need-to-Know%20Architecture.md)

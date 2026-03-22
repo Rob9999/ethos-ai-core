@@ -204,13 +204,13 @@ https://theblue.ai/blog/multimodal-models-ai/
 |---|---|---|
 | **Civic Loyalty Code** (5 Prinzipien) | 🟡 70% | `ethic/ethics_module.py` — Red-Line-Scanning + Veto; expliziter Civic-Code als Konstante fehlt |
 | **Engineering Graph** (7 Layer) | 🔴 10% | → [3D SimGrid Extension](Omnimodaler%203D%20SimGrid%20Engine%20-%20Erweiterungskonzept.md) |
-| **Digital Twin Engine** | 🟢 100% | `simulation/simulation_grid.py` — ComplexityRouter, ScenarioGenerator, 7-Module |
-| **0D/1D Modelle** | 🔴 0% | Geplant: `simulation/engineering_models.py` |
-| **ROM Generator** | 🔴 0% | Geplant: `simulation/rom_generator.py` |
+| **Digital Twin Engine** | 🟢 100% | `simulation/simulation_grid` module — ComplexityRouter, ScenarioGenerator, 7-Module |
+| **0D/1D Modelle** | 🔴 0% | Geplant: `simulation/engineering_models` module |
+| **ROM Generator** | 🔴 0% | Geplant: `simulation/rom_generator` module |
 | **High-Fidelity FEM/CFD** | 🔴 0% | Geplant: SfePy/FEniCSx Integration |
 | **Collision Checking** | 🔴 0% | Geplant: MuJoCo Integration |
-| **Material Database** | 🔴 0% | Geplant: `data/materials.json` |
-| **FMEA Module** | 🔴 0% | Geplant: `simulation/fmea_module.py` |
+| **Material Database** | 🔴 0% | Geplant: Materials JSON Database |
+| **FMEA Module** | 🔴 0% | Geplant: `simulation/fmea_module` module |
 | **A2A Protocol** | 🔴 0% | Geplant: `api/a2a_protocol.py` |
 | **MCP Integration** | 🟢 100% | `api/mcp_server.py` |
 | **Omnimodal Communication** | 🟡 50% | Text+JSON umgesetzt; 3D/Audio fehlt |

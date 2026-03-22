@@ -6,10 +6,6 @@ version: "0.1.0"
 author: Robert Alexander Massinger
 date: 2026-03-09
 tags: [workbench, delivery, customer, concept, 3d-review, standalone]
-code-references:
-  - "ethos_ai/api/workbench_router.py"
-  - "ethos_ai/api/static/js/components/workbenchworld.js"
-  - "doc/api/Workbench-API.md"
 ---
 # Workbench World — Minikonzept Kundenauslieferung
 
@@ -158,7 +154,7 @@ Jede Kundenauslieferung (Stufe 2+) enthält:
 2. **README.md** — Quickstart, Docker-Setup, Screenshots
 3. **CHANGELOG.md** — Versions-Historie des gelieferten Pakets
 
-Die API-Dokumentation ist bereits erstellt: `doc/api/Workbench-API.md`
+Die API-Dokumentation ist bereits erstellt: API documentation (Workbench-API.md)
 
 ---
 
@@ -182,9 +178,9 @@ Die API-Dokumentation ist bereits erstellt: `doc/api/Workbench-API.md`
 
 ## 6 · Nächste Schritte
 
-1. ✅ **API-Dokumentation erstellen** → `doc/api/Workbench-API.md`
+1. ✅ **API-Dokumentation erstellen** → API documentation (Workbench-API.md)
 2. ✅ **Minikonzept erstellen** → dieses Dokument
-3. **Backlog-Einträge anlegen** → BL-283 ff. im Projekt-Backlog
+3. **Backlog-Einträge anlegen** → tracked internally
 4. **Sprint planen** → Stufe 1 MVP als nächsten Workbench-Sprint
-5. **Build-Skript prototypen** → `scripts/build_workbench_package.py`
+5. **Build-Skript prototypen** → build script (build_workbench_package.py)
 6. **Manifest-Schema definieren** → `workbench_manifest.schema.json`

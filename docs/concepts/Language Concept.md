@@ -22,7 +22,7 @@
 
 | Komponente / Component | Status | Details |
 |---|---|---|
-| `ethos_ai/util/translate.py` | ✅ Active | Singleton `Translations` class, key-based lookup, JSON-backed |
+| `util/translate` module | ✅ Active | Singleton `Translations` class, key-based lookup, JSON-backed |
 | `resources/messages/messages_en.json` | ✅ 55 keys | UI messages, status texts |
 | `resources/messages/messages_de.json` | ✅ Present | German UI messages |
 | `resources/prompts/prompts_en.json` | ✅ Present | LLM prompts in English |
@@ -347,7 +347,7 @@ def calculate_stress(force: float, area: float) -> float:
 | DE | EN | Kontext / Context |
 |---|---|---|
 | Sprachschicht | Language Layer | Architecture layer handling i18n |
-| Übersetzungsdienst | Translation Service | `ethos_ai/util/translate.py` |
+| Übersetzungsdienst | Translation Service | `util/translate` module |
 | Nutzersprache | User Language | Language preferred by the end user |
 | Interne Sprache | Internal Language | Language used for processing/logs |
 | Prompt-Vorlage | Prompt Template | LLM instruction template with `{lang}` |

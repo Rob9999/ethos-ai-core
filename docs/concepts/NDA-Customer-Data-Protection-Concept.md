@@ -111,9 +111,9 @@ customers/
 
 ```gitignore
 # Customer data — catch common alternative locations
-customer_data/
-client_data/
-nda_data/
+customer-files/
+client-files/
+nda-files/
 ```
 
 The `.env` file itself is also ignored (`*.env*`), ensuring secrets and
@@ -195,7 +195,7 @@ Default: **Fernet** — zero external dependencies beyond `cryptography`
 
 - Key file stored in `keys/customers.key` (already git-ignored).
 - Key rotation: create new key, re-encrypt files, archive old key.
-- Future: integrate with Keystore module (v1.34.0 BL-192).
+- Future: integrate with Keystore module (v1.34.0 (internal tracking)).
 
 ### 6.3 In-Transit Encryption
 

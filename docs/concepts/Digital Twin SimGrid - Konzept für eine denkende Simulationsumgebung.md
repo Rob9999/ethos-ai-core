@@ -551,45 +551,45 @@ class SynthesizedDecision:
 
 | # | Task | Datei(en) | Aufwand |
 |---|------|-----------|---------|
-| 1.1 | `ThinkingDepth` Enum + `ComplexityRouter` | `ethos_ai/simulation/complexity_router.py` | S |
-| 1.2 | `SimulationScenario` + `Role` Datenmodelle | `ethos_ai/simulation/models.py` | S |
-| 1.3 | Integration in `service.py::process_prompt()` | `ethos_ai/api/service.py` | M |
+| 1.1 | `ThinkingDepth` Enum + `ComplexityRouter` | `simulation/complexity_router` module | S |
+| 1.2 | `SimulationScenario` + `Role` Datenmodelle | `simulation/models` module | S |
+| 1.3 | Integration in `service.py::process_prompt()` | `api/service` module | M |
 | 1.4 | UI: Denktiefe-Indikator im Chat | `training.js` / `chat.js` | S |
 
 ### Sprint 2: Rollen-Simulation
 
 | # | Task | Datei(en) | Aufwand |
 |---|------|-----------|---------|
-| 2.1 | `RoleSimulator` — Perspektivwechsel-Engine | `ethos_ai/simulation/role_simulator.py` | L |
-| 2.2 | Standard-Rollen-Set (5 Basis-Rollen) | `ethos_ai/simulation/roles.py` | S |
-| 2.3 | Rollen-Prompt-Templates | `ethos_ai/simulation/prompts/` | M |
-| 2.4 | `ScenarioGenerator` — Varianten-Erzeugung | `ethos_ai/simulation/scenario_generator.py` | M |
+| 2.1 | `RoleSimulator` — Perspektivwechsel-Engine | `simulation/role_simulator` module | L |
+| 2.2 | Standard-Rollen-Set (5 Basis-Rollen) | `simulation/roles` module | S |
+| 2.3 | Rollen-Prompt-Templates | Simulation Prompts Package | M |
+| 2.4 | `ScenarioGenerator` — Varianten-Erzeugung | `simulation/scenario_generator` module | M |
 
 ### Sprint 3: Konsequenz-Simulation
 
 | # | Task | Datei(en) | Aufwand |
 |---|------|-----------|---------|
-| 3.1 | `ConsequenceSimulator` — Kausalketten | `ethos_ai/simulation/consequence_simulator.py` | L |
-| 3.2 | `ConsequenceTree` Datenstruktur | `ethos_ai/simulation/models.py` | S |
-| 3.3 | `DecisionSynthesizer` — Gewichtete Synthese | `ethos_ai/simulation/decision_synthesizer.py` | L |
+| 3.1 | `ConsequenceSimulator` — Kausalketten | `simulation/consequence_simulator` module | L |
+| 3.2 | `ConsequenceTree` Datenstruktur | `simulation/models` module | S |
+| 3.3 | `DecisionSynthesizer` — Gewichtete Synthese | `simulation/decision_synthesizer` module | L |
 
 ### Sprint 4: Experience Harvesting + Auto-Training
 
 | # | Task | Datei(en) | Aufwand |
 |---|------|-----------|---------|
-| 4.1 | `ExperienceHarvester` — Erfahrungen sammeln | `ethos_ai/simulation/experience_harvester.py` | M |
-| 4.2 | `TestCaseGenerator` — Auto-Generierung | `ethos_ai/simulation/test_case_generator.py` | L |
-| 4.3 | Embedding-basiertes Clustering | `ethos_ai/simulation/clustering.py` | M |
-| 4.4 | Integration in Training-Pipeline | `ethos_ai/clim/train_list_generator.py` | M |
+| 4.1 | `ExperienceHarvester` — Erfahrungen sammeln | `simulation/experience_harvester` module | M |
+| 4.2 | `TestCaseGenerator` — Auto-Generierung | `simulation/test_case_generator` module | L |
+| 4.3 | Embedding-basiertes Clustering | `simulation/clustering` module | M |
+| 4.4 | Integration in Training-Pipeline | `clim/train_list_generator` module | M |
 
 ### Sprint 5: UI + API
 
 | # | Task | Datei(en) | Aufwand |
 |---|------|-----------|---------|
-| 5.1 | API-Endpunkte für SimGrid-Steuerung | `ethos_ai/api/app.py` | M |
-| 5.2 | Chat-UI: Denk-Indikator (L0/L1/L2) | `ethos_ai/api/static/js/components/chat.js` | M |
-| 5.3 | SimGrid-Dashboard: Visualisierung | `ethos_ai/api/static/js/components/simgrid.js` | L |
-| 5.4 | Perspektiven-Ansicht im Chat | `ethos_ai/api/static/js/components/chat.js` | M |
+| 5.1 | API-Endpunkte für SimGrid-Steuerung | `api/app` module | M |
+| 5.2 | Chat-UI: Denk-Indikator (L0/L1/L2) | Frontend Chat Component | M |
+| 5.3 | SimGrid-Dashboard: Visualisierung | Frontend SimGrid Component | L |
+| 5.4 | Perspektiven-Ansicht im Chat | Frontend Chat Component | M |
 
 ---
 

@@ -33,7 +33,7 @@ erweiterbares Werkzeugkastensystem**:
 ### 2.1 Verzeichnisstruktur (kanonisch)
 
 ```
-toolboxes/                                 ← Root-Package
+toolbox-packages/                          ← Root-Package
 ├── __init__.py
 │
 ├── engineering/                           ← Maschinenbau-Toolbox (v1.0.0)
@@ -78,7 +78,7 @@ toolboxes/                                 ← Root-Package
 ### 2.2 Kompatibilitätsschicht
 
 ```
-ethos_ai/engineering/                      ← Compatibility Proxy (seit v1.21.0)
+engineering/ package                      ← Compatibility Proxy (seit v1.21.0)
 ├── __init__.py                            ← re-exports EngineeringDomain
 ├── fmea.py                                ← re-exports → toolboxes.engineering.fmea
 ├── gear_calc.py                           ← re-exports → toolboxes.engineering.gear_calc
@@ -173,15 +173,15 @@ capabilities:                               # Registrierte Fähigkeiten
 
 | Komponente | Datei | Verantwortung |
 |-----------|-------|---------------|
-| **Models** | `ethos_ai/toolbox/models.py` | Pydantic-Datenmodelle (~170 Zeilen) |
-| **Loader** | `ethos_ai/toolbox/loader.py` | YAML-Discovery + Validierung (~230 Zeilen) |
-| **Registry** | `ethos_ai/toolbox/registry.py` | Lifecycle-Manager (~530 Zeilen) |
+| **Models** | `toolbox/models` module | Pydantic-Datenmodelle (~170 Zeilen) |
+| **Loader** | `toolbox/loader` module | YAML-Discovery + Validierung (~230 Zeilen) |
+| **Registry** | `toolbox/registry` module | Lifecycle-Manager (~530 Zeilen) |
 
 ### 5.1 ToolboxRegistry API
 
 ```python
 class ToolboxRegistry:
-    async def discover()                    # Scan toolboxes/ für toolbox.yaml
+    async def discover()                    # Scan toolbox-packages/ für toolbox.yaml
     async def validate(name)                # Strukturprüfung
     async def load(name)                    # Singletons + Hooks + Tools laden
     async def unload(name)                  # Ressourcen freigeben
@@ -205,9 +205,9 @@ class ToolboxRegistry:
 
 | Phase | Version | Aktion |
 |-------|---------|--------|
-| 1 | v1.20.0 | Dateien nach `toolboxes/engineering/` kopiert (relative Imports) |
+| 1 | v1.20.0 | Dateien nach `engineering-toolbox/` kopiert (relative Imports) |
 | 2 | v1.20.0 | `toolbox.yaml` + Registry + Loader implementiert |
-| 3 | v1.21.0 | `ethos_ai/engineering/` zu Compatibility Proxy konvertiert |
+| 3 | v1.21.0 | `engineering/` package zu Compatibility Proxy konvertiert |
 | 4 | v1.21.0 | Alle Tests bestehen mit Proxy-Imports |
 | 5 | v1.22.0+ | DeprecationWarning → Imports schrittweise auf `toolboxes.*` migrieren |
 | 6 | v2.0.0 | Proxy-Layer entfernen |
@@ -215,9 +215,9 @@ class ToolboxRegistry:
 ### Proxy-Beispiel
 
 ```python
-# ethos_ai/engineering/fmea.py (v1.21.0 — Proxy)
+# engineering/fmea module (v1.21.0 — Proxy)
 """FMEA Module — Compatibility proxy.
-Canonical source: toolboxes/engineering/fmea.py
+Canonical source: engineering-toolbox/fmea.py
 """
 from toolboxes.engineering.fmea import (
     FMEAAction, FMEAAnalysis, FMEAEntry, RiskLevel,
@@ -275,13 +275,13 @@ ethos toolbox add-tool engineering new_tool.py
 
 | Methode | Pfad | Beschreibung |
 |---------|------|-------------|
-| GET | `/api/toolboxes` | Alle Toolboxen mit Status |
-| GET | `/api/toolboxes/{name}` | Toolbox-Detail |
-| GET | `/api/toolboxes/{name}/tools` | Werkzeug-Liste |
-| POST | `/api/toolboxes/{name}/load` | Toolbox laden |
-| POST | `/api/toolboxes/{name}/unload` | Toolbox entladen |
-| POST | `/api/toolboxes/{name}/reload` | Hot-Reload |
-| GET | `/api/toolboxes/tools/search?q=…` | Cross-Toolbox-Suche |
+| GET | `/api/toolbox-list` | Alle Toolboxen mit Status |
+| GET | `/api/toolbox-detail/{name}` | Toolbox-Detail |
+| GET | `/api/toolbox-packages/{name}/tools` | Werkzeug-Liste |
+| POST | `/api/toolbox-packages/{name}/load` | Toolbox laden |
+| POST | `/api/toolbox-packages/{name}/unload` | Toolbox entladen |
+| POST | `/api/toolbox-packages/{name}/reload` | Hot-Reload |
+| GET | `/api/toolbox-list/tools/search?q=…` | Cross-Toolbox-Suche |
 
 ---
 
@@ -290,7 +290,7 @@ ethos toolbox add-tool engineering new_tool.py
 Jede Toolbox MUSS folgende Dokumentation enthalten:
 
 ```
-toolboxes/{name}/
+toolbox-packages/{name}/
 ├── README.md                    ← Capability TOC + Kurzbeschreibung (DE | EN)
 └── docs/
     ├── concept_de.md            ← Toolbox-Konzept (Deutsch)
@@ -331,9 +331,9 @@ toolboxes/{name}/
 ## 11. Roadmap
 
 ### v1.21.0 — Living Toolbox System (aktuell)
-- ✅ Legacy-Migration: `ethos_ai/engineering/` → Compatibility Proxy
-- ✅ `toolboxes/engineering/` ist kanonische Quelle
-- ✅ Software-Entwicklung Toolbox (`toolboxes/software-dev/`)
+- ✅ Legacy-Migration: `engineering/` package → Compatibility Proxy
+- ✅ `engineering-toolbox/` ist kanonische Quelle
+- ✅ Software-Entwicklung Toolbox (`software-dev-toolbox/`)
 - ✅ Toolbox-Dokumentationsstandard (README.md + docs/)
 - ✅ Konzeptdokument v2.0
 
@@ -344,12 +344,12 @@ toolboxes/{name}/
 - 🔲 `toolbox.yaml`-Auto-Update nach Tool-Erstellung
 
 ### v1.23.0 — Elektrotechnik-Toolbox
-- 🔲 `toolboxes/electrical/` mit circuit_calc, emc_check, power_analysis
+- 🔲 `electrical-toolbox/` mit circuit_calc, emc_check, power_analysis
 - 🔲 Normen: DIN VDE 0100, IEC 60364, DIN EN 61000
 - 🔲 Schaltungssimulation (SPICE-Anbindung)
 
 ### v1.24.0 — Bauingenieurwesen-Toolbox
-- 🔲 `toolboxes/civil-engineering/` mit structural_calc, load_analysis
+- 🔲 `civil-engineering-toolbox/` mit structural_calc, load_analysis
 - 🔲 Normen: DIN EN 1990-1992, Eurocode
 - 🔲 Statik-Berechnung, Tragwerksplanung
 
@@ -368,8 +368,8 @@ toolboxes/{name}/
 
 ## 12. Akzeptanzkriterien (v1.21.0)
 
-1. ✅ `ethos_ai/engineering/` ist Compatibility Proxy
-2. ✅ `toolboxes/engineering/` ist kanonische Quelle
+1. ✅ `engineering/` package ist Compatibility Proxy
+2. ✅ `engineering-toolbox/` ist kanonische Quelle
 3. ✅ Alle bestehenden Tests bestehen (mit DeprecationWarning)
 4. ✅ Software-Entwicklung Toolbox existiert und ist ladbar
 5. ✅ Jede Toolbox hat README.md + docs/

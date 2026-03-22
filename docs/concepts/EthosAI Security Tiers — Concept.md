@@ -62,15 +62,15 @@ Security-Module:
 
 | Modul | Pfad | Seit | Funktion |
 |-------|------|------|----------|
-| **JWT + RBAC** | `ethos_ai/api/auth.py` | v1.2.0 | Authentifizierung, 4 Rollen (admin, advisor, user, readonly) |
-| **DSGVO Checks** | BL-062 | v1.2.0 | Grundlegende Datenschutz-Compliance |
+| **JWT + RBAC** | `api/auth` module | v1.2.0 | Authentifizierung, 4 Rollen (admin, advisor, user, readonly) |
+| **DSGVO Checks** | (internal tracking) | v1.2.0 | Grundlegende Datenschutz-Compliance |
 | **TLS Enforcement** | Config | v1.2.0 | HTTPS-only für API-Kommunikation |
-| **ClassificationLevel** | `ethos_ai/security/classification_level.py` | v1.5.0 | 4-Stufen: PUBLIC → INTERNAL → CONFIDENTIAL → SECRET |
-| **ProjectNamespace** | `ethos_ai/security/project_namespace.py` | v1.5.0 | Projekt-Isolation, Chinese-Wall-Prinzip |
-| **NDA Registry** | `ethos_ai/security/nda_registry.py` | v1.5.0 | Vertragsverwaltung, Compliance-Check |
-| **Information Barriers** | `ethos_ai/security/information_barrier.py` | v1.5.0 | Chinese-Wall-Enforcement + Audit-Trail |
-| **Security Service** | `ethos_ai/api/security_service.py` | v1.5.0 | Zentrale Security-API (Facade) |
-| **Sandbox** | `ethos_ai/security/sandbox.py` | v1.3.0 | Code-Execution-Isolation |
+<!-- redacted: internal note -->
+| **ProjectNamespace** | `security/project_namespace` module | v1.5.0 | Projekt-Isolation, Chinese-Wall-Prinzip |
+| **NDA Registry** | `security/nda_registry` module | v1.5.0 | Vertragsverwaltung, Compliance-Check |
+| **Information Barriers** | `security/information_barrier` module | v1.5.0 | Chinese-Wall-Enforcement + Audit-Trail |
+| **Security Service** | `api/security_service` module | v1.5.0 | Zentrale Security-API (Facade) |
+| **Sandbox** | `security/sandbox` module | v1.3.0 | Code-Execution-Isolation |
 
 > **Erkenntnis:** Tier 1 ist bereits weitgehend implementiert. Tier 2 erfordert
 > Konfigurationshärtung + Deployment-Anpassungen. Tier 3 erfordert neue Module.
@@ -91,8 +91,8 @@ Security-Module:
 |---------|------------|--------|----------------|
 | **Authentifizierung** | JWT + RBAC (4 Rollen) | ✅ Impl. | `auth.py` |
 | **Transportverschlüsselung** | TLS 1.2+ | ✅ Impl. | Config |
-| **Datenverschlüsselung** | At-Rest für CONFIDENTIAL+ | ✅ Impl. | `classification_level.py` |
-| **Datenschutz** | DSGVO Compliance-Checks | ✅ Impl. | BL-062 |
+<!-- redacted: internal note -->
+| **Datenschutz** | DSGVO Compliance-Checks | ✅ Impl. | (internal tracking) |
 | **NDA-Management** | NDA Registry + Compliance | ✅ Impl. | `nda_registry.py` |
 | **Audit-Trail** | Basis-Logging (who, when, what) | ✅ Impl. | `information_barrier.py` |
 | **Projekt-Isolation** | Logische Namespace-Trennung | ✅ Impl. | `project_namespace.py` |
@@ -145,13 +145,13 @@ Security-Module:
 | **Authentifizierung** | MFA (TOTP/FIDO2) | 🔲 Neu | `auth.py` erweitern |
 | **Zertifikate** | Client-Zertifikate (mTLS) | 🔲 Neu | Reverse-Proxy + Config |
 | **Krypto-Standards** | BSI TR-02102-2 (TLS-Cipher-Suites) | 🔲 Config | Config-Hardening |
-| **Schlüsselverwaltung** | Dedizierter Key-Store (PKCS#11 oder SoftHSM) | 🔲 Neu | `security/key_store.py` |
+| **Schlüsselverwaltung** | Dedizierter Key-Store (PKCS#11 oder SoftHSM) | 🔲 Neu | `security/key_store` module |
 | **Audit-Trail** | Signierte, unveränderliche Logs (HMAC) | 🔲 Neu | `information_barrier.py` erweitern |
 | **Netzwerk** | VPN-only Access, keine öffentlichen Endpunkte | 🔲 Config | Deployment |
 | **LLM-Provider** | Nur self-hosted oder EU-sovereign (kein US-Cloud) | 🔲 Config | `llm_provider_policy.py` |
 | **Pentest** | Jährlicher Penetrationstest durch akkreditierte Stelle | 🔲 Prozess | Operativ |
 | **Incident Response** | Dokumentierter IR-Plan, max. 72h Meldung (NIS2 Art. 23) | 🔲 Prozess | Operativ |
-| **Lösch-Konzept** | Automatisierte Datenlöschung nach Retention-Policy | 🔲 Neu | `security/retention.py` |
+| **Lösch-Konzept** | Automatisierte Datenlöschung nach Retention-Policy | 🔲 Neu | `security/retention` module |
 | **Log-Aufbewahrung** | Min. 7 Jahre (handelsrechtliche Aufbewahrung) | 🔲 Config | Audit-Trail |
 | **Code-Audit** | Nachvollziehbare Code-Herkunft (SBOM, signierte Builds) | 🔲 Prozess | CI/CD |
 
@@ -229,17 +229,17 @@ CC EAL4+, nato.int RESTRICTED+
 | Bereich | Anforderung | Status | Umsetzung |
 |---------|------------|--------|-----------|
 | **Netzwerk** | Vollständig air-gapped — kein Internet, kein LAN | 🔲 Arch. | Deployment-Architektur |
-| **Krypto** | HSM-basierte Schlüsselverwaltung (FIPS 140-2 Level 3 oder BSI-zugelassen) | 🔲 Neu | `security/hsm_adapter.py` |
+| **Krypto** | HSM-basierte Schlüsselverwaltung (FIPS 140-2 Level 3 oder BSI-zugelassen) | 🔲 Neu | `security/hsm_adapter` module |
 | **Authentifizierung** | Smartcard / PKI (BSI TR-03116-4) | 🔲 Neu | `auth.py` erweitern |
 | **Betriebssystem** | Gehärtetes OS (BSI SiSyPHuS / DISA STIG) | 🔲 Prozess | Deployment |
-| **Audit-Trail** | HSM-signiert, WORM-Storage, extern prüfbar | 🔲 Neu | `security/worm_audit.py` |
+| **Audit-Trail** | HSM-signiert, WORM-Storage, extern prüfbar | 🔲 Neu | `security/worm_audit` module |
 | **Code-Herkunft** | Signierte Releases, SBOM, reproduzierbare Builds | 🔲 Prozess | CI/CD |
 | **LLM** | Nur lokales Modell auf zertifizierter Hardware | 🔲 Config | Keine API-Calls |
 | **Datenträger** | Full-Disk-Encryption (BSI-zugelassen), Löschnachweis | 🔲 Prozess | Operativ |
 | **Tempest** | TEMPEST-geschirmte Hardware (NATO SDIP-27/AMSG-788) | 🔲 Hardware | Beschaffung |
 | **Zulassung** | BSI-Akkreditierung des Gesamtsystems | 🔲 Prozess | Akkreditierungsverfahren |
-| **Daten-Export** | Kein Export ohne Freigabeverfahren (4-Augen-Prinzip) | 🔲 Neu | `security/export_control.py` |
-| **Löschung** | Kryptographische Löschung (Key-Destruction) | 🔲 Neu | `security/crypto_shred.py` |
+| **Daten-Export** | Kein Export ohne Freigabeverfahren (4-Augen-Prinzip) | 🔲 Neu | `security/export_control` module |
+| **Löschung** | Kryptographische Löschung (Key-Destruction) | 🔲 Neu | `security/crypto_shred` module |
 | **Betrieb** | Nur durch sicherheitsüberprüftes Personal (Ü2/Ü3) | 🔲 Prozess | Operativ |
 
 #### 3.3.2 Air-Gap-Deployment
@@ -365,7 +365,7 @@ class TierPolicy:
     audit_tamper_protection: str         # "none" | "hmac" | "hsm"
 
     # Classification
-    max_classification: ClassificationLevel  # CONFIDENTIAL | SECRET | SECRET
+<!-- redacted: internal note -->
     auto_classify_uploads: bool          # True ab Tier 2
 
     # Export-Kontrolle
@@ -397,7 +397,7 @@ TIER_POLICIES: dict[SecurityTier, TierPolicy] = {
         audit_format="jsonl",
         audit_retention_days=1095,
         audit_tamper_protection="none",
-        max_classification=ClassificationLevel.CONFIDENTIAL,
+<!-- redacted: internal note -->
         auto_classify_uploads=False,
         export_approval_required=False,
         export_encryption_required=False,
@@ -458,15 +458,15 @@ TIER_POLICIES: dict[SecurityTier, TierPolicy] = {
 
 ### 5.1 Mapping: ClassificationLevel ↔ SecurityTier
 
-Das bestehende 4-Stufen-Klassifikationsmodell (PUBLIC/INTERNAL/CONFIDENTIAL/SECRET)
+<!-- redacted: internal note -->
 bleibt erhalten. Die Security-Tiers **beschränken**, welche Klassifikationsstufen
 in welchem Deployment verwendet werden dürfen:
 
 | ClassificationLevel | Tier 1 ✅/❌ | Tier 2 ✅/❌ | Tier 3 ✅/❌ |
 |---------------------|-------------|-------------|-------------|
 | PUBLIC | ✅ | ✅ | ✅ |
-| INTERNAL | ✅ | ✅ | ✅ |
-| CONFIDENTIAL | ✅ | ✅ | ✅ |
+<!-- redacted: internal note -->
+<!-- redacted: internal note -->
 | SECRET | ❌ | ✅ | ✅ |
 
 > **Regel:** SECRET-Daten dürfen nur in Tier 2+ verarbeitet werden.
@@ -557,7 +557,7 @@ security:
 ### 7.1 Übersicht
 
 ```
-ethos_ai/security/
+security/ package
 ├── classification_level.py      # ✅ Existiert (v1.5.0)
 ├── project_namespace.py         # ✅ Existiert (v1.5.0)
 ├── nda_registry.py              # ✅ Existiert (v1.5.0)

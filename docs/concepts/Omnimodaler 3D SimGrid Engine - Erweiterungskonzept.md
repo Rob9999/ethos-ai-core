@@ -342,7 +342,7 @@ Gemäß der EthosAI-Worlds-LLM-Policy (§5.2 der Produkt-Architektur-Analyse): *
 ### 6.1 Klassen-Design
 
 ```javascript
-// pool/simgridworld/simgridworld.js
+// SimGridWorldView (frontend module)
 class SimGridWorldView extends WorldBase {
 
     // === Lifecycle (WorldBase Hooks) ===
@@ -395,7 +395,7 @@ SimGridWorld nutzt die bestehenden ECS-Components und erweitert sie:
 ### 6.3 World Pack: `simgrid-3d`
 
 ```
-data/world_packs/simgrid-3d/
+world-packages/simgrid-3d/
 ├── assets/
 │   ├── rapier3d-compat.wasm       # Rapier WASM Bundle (~200 KB)
 │   └── sample-models/             # Beispiel-STL/GLTF für Demo
@@ -595,7 +595,7 @@ Der `RoleSimulator` hat bereits die Rolle **ENGINEER**. Diese wird um physikalis
 
 | # | Deliverable | LOC (Schätzung) |
 |---|---|---|
-| 1.1 | `pool/simgridworld/simgridworld.js` (SimGridWorldView extends WorldBase) | ~1.500 |
+| 1.1 | `SimGridWorldView (frontend module)` (SimGridWorldView extends WorldBase) | ~1.500 |
 | 1.2 | Rapier.js WASM Integration (Physics-Step in `_animate()`) | ~400 |
 | 1.3 | Force-Application-UI (Kraftpfeile, Lager-Marker) | ~300 |
 | 1.4 | Material-Inspector PAD (Auswahl aus materials.py) | ~200 |
@@ -740,14 +740,14 @@ Zwei bereits existierende World Packs bilden den inhaltlichen Rahmen:
 
 | Phase | Woche | Deliverable |
 |---|---|---|
-| **P1** | KW 09 | `ethos_ai/simulation/simgrid_3d.py` — Orchestrator |
-| **P2** | KW 10 | `ethos_ai/simulation/cad_service.py` — CadQuery Integration |
-| **P3** | KW 10 | `ethos_ai/simulation/physics_service.py` — MuJoCo Integration |
-| **P4** | KW 11 | `ethos_ai/simulation/visualization_service.py` — PyVista |
-| **P5** | KW 11 | `ethos_ai/simulation/mesh_exchange.py` — Trimesh Converter |
-| **P6** | KW 12 | `ethos_ai/simulation/fem_service.py` — SfePy FEM |
-| **P7** | KW 12 | `ethos_ai/simulation/fmea_module.py` — FMEA Engine |
-| **P8** | KW 13 | `data/materials.json` — Materialien-DB (10+ Werkstoffe) |
+| **P1** | KW 09 | SimGrid 3D Orchestrator Module |
+| **P2** | KW 10 | `simulation/cad_service` module — CadQuery Integration |
+| **P3** | KW 10 | `simulation/physics_service` module — MuJoCo Integration |
+| **P4** | KW 11 | `simulation/visualization_service` module — PyVista |
+| **P5** | KW 11 | `simulation/mesh_exchange` module — Trimesh Converter |
+| **P6** | KW 12 | `simulation/fem_service` module — SfePy FEM |
+| **P7** | KW 12 | `simulation/fmea_module` module — FMEA Engine |
+| **P8** | KW 13 | Materials Database (JSON, 10+ Werkstoffe) |
 | **P9** | KW 13 | API-Endpoints + Tests (≥ 50 Tests) |
 
 ### A.3 Ursprüngliche Abhängigkeiten (~500 MB)

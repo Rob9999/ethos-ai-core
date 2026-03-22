@@ -451,7 +451,7 @@ Sicherheitsmodell von EthosAI (→ siehe separates Konzept:
 ## 8. Verzeichnisstruktur
 
 ```
-toolboxes/internet_research/
+internet-research-toolbox/
 ├── __init__.py                 # Modul-Docstring
 ├── toolbox.yaml                # Manifest (8 Tools, 8 Capabilities)
 ├── README.md                   # Übersicht + API-Beispiele

@@ -395,9 +395,9 @@ Code that exists but is currently inactive, to be activated in future sprints:
 | GPT-2 `CLIMStack` | `clim/clim_stack.py` | v1.0.0 |
 | `ScriptGenerator` | `instruction/script_generator.py` | v0.5.0 (connect to real plugins) |
 | Plugin system | `tool/plugin_loader.py` | v0.5.0 |
-| Phase state machine | `state/phase.py` | v0.7.0 |
+| Phase state machine | `state/phase` module | v0.7.0 |
 | `check_deviations()` | `process_model.py` | v0.7.0 |
-| `SecuredIdentityCard` full crypto | `security/secured_identity_card.py` | v0.8.0 |
+| `SecuredIdentityCard` full crypto | `security/secured_identity_card` module | v0.8.0 |
 | N:N Advisor concept | (documented only) | v0.9.0 |
 
 ---

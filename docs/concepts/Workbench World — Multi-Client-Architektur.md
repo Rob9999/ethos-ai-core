@@ -6,10 +6,6 @@ version: "0.1.0"
 author: Robert Alexander Massinger
 date: 2026-03-09
 tags: [workbench, architecture, multi-user, collaboration, sync, data-access, websocket]
-code-references:
-  - "ethos_ai/api/workbench_router.py"
-  - "ethos_ai/api/websocket_manager.py"
-  - "ethos_ai/api/static/js/components/workbenchworld.js"
 ---
 # Workbench World — Multi-Client-Architektur & Daten-Synchronisation
 
@@ -36,14 +32,14 @@ Begründung:
 ┌─────────────────────────────────────────────────────┐
 │  Variante 1: Daten auf dem Client (lokal)           │
 │                                                     │
-│  Client ←→ localhost:8000 ←→ customers/             │
+│  Client ←→ server:PORT ←→ customers/             │
 │  (EthosAI + Daten auf demselben Rechner)            │
 │                                                     │
 │  → Trivial: Alles lokal, kein Netzwerk nötig        │
 ├─────────────────────────────────────────────────────┤
 │  Variante 2: Daten auf Netzlaufwerk (NAS/SMB)      │
 │                                                     │
-│  Client ←→ localhost:8000 ←→ \\NAS\projects\        │
+│  Client ←→ server:PORT ←→ \\NAS\projects\        │
 │  (EthosAI lokal, Daten remote gemountet)            │
 │                                                     │
 │  → .env: ETHOSAI_CUSTOMERS_DIR=\\NAS\projects       │
@@ -51,7 +47,7 @@ Begründung:
 ├─────────────────────────────────────────────────────┤
 │  Variante 3: Daten nur auf dem Server               │
 │                                                     │
-│  Client (Browser) ──HTTP──→ Server:8000 ──→ data/   │
+│  Client (Browser) ──HTTP──→ Server:PORT ──→ storage/ │
 │  (Kein lokaler Zugriff, alles über API)             │
 │                                                     │
 │  → Standard-Web-Architektur                         │
@@ -244,7 +240,7 @@ Ein EthosAI-Agent (z.B. Review-Ingenieur) kann headless an einer Session teilneh
 
 ```python
 # Agent-seitig (Python)
-async with websockets.connect("ws://server:8000/ws/wb") as ws:
+async with websockets.connect("ws://server:PORT/ws/wb") as ws:
     # Session beitreten
     await ws.send(json.dumps({
         "type": "wb:session:join",
@@ -273,16 +269,16 @@ async with websockets.connect("ws://server:8000/ws/wb") as ws:
 
 ### 3.1 Bestehende Infrastruktur
 
-EthosAI hat bereits einen `WebSocketManager` ([websocket_manager.py](ethos_ai/api/websocket_manager.py)):
+EthosAI hat bereits einen `WebSocketManager` ([websocket_manager.py](api/websocket_manager module)):
 - `connect()`, `disconnect()`, `broadcast()`, `send_personal()`
-- Aktiver Endpoint: `ws://server:8000/ws`
+- Aktiver Endpoint: `ws://server:PORT/ws`
 
 ### 3.2 Erweiterung: Workbench-WebSocket
 
 Neuer Endpoint für Workbench-Sessions:
 
 ```
-ws://server:8000/ws/wb?session={session_id}&user={user_name}
+ws://server:PORT/ws/wb?session={session_id}&user={user_name}
 ```
 
 **Separater Channel**, damit Workbench-Traffic nicht mit dem Advisor-Chat kollidiert.
@@ -382,7 +378,7 @@ Jeder Client kann den Screenshot **lokal rendern** (identische Szene + Kamera) o
 | **Phase 1** | `ETHOSAI_CUSTOMERS_DIR` .env-konfigurierbar | 0.5 Sprint |
 | **Phase 1** | ETag/304 Caching für `/file/` Endpoint | 0.5 Sprint |
 | **Phase 1** | Client-IndexedDB STL-Cache | 1 Sprint |
-| **Phase 2** | `ws://server:8000/ws/wb` Endpoint | 1 Sprint |
+| **Phase 2** | `ws://server:PORT/ws/wb` Endpoint | 1 Sprint |
 | **Phase 2** | `WorkbenchSessionManager` (create/join/leave) | 1 Sprint |
 | **Phase 2** | Client-JS: Session-Join + Delta-Sync | 1.5 Sprint |
 | **Phase 2** | Avatar/Camera Ghost-Cursors | 0.5 Sprint |

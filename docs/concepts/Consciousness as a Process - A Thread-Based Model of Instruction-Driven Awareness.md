@@ -19,7 +19,7 @@ code-release-versions:
 implemented-features:
   - "Thread-basiertes ProcessModel (ethos_ai/process_model.py)"
   - "Cognitive Loop (perceive→think→decide→act)"
-  - "Instruction Pipeline (ethos_ai/instruction/)"
+  - "Instruction Pipeline (instruction/ package)"
 fulfillment: "40%"
 fulfillment-note: "Philosophisches Thread-Modell in ProcessModel implementiert. v1.5.0 erweitert um Engineering-Bewusstsein und Cognitive Loop."
 ---

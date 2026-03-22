@@ -87,7 +87,7 @@ ChatGPT, Claude, lokale LLMs) als auch von menschlichen Testern verwendet werden
 
 ### 2.1 Explorative Web Module
 
-**Pfad:** `ethos_ai/api/explorative/web_explorer.py`  
+**Modul:** Web Explorer (Explorative Testing)  
 **API-Endpunkte:** `GET/POST /api/explorative/...`  
 **Frontend:** `#/explorative` SPA-Page  
 
@@ -100,14 +100,14 @@ Besteht aus:
 
 ### 2.2 Explorative SSH Module
 
-**Pfad:** `ethos_ai/api/explorative/ssh_explorer.py`  
+**Modul:** SSH Explorer (Explorative Testing)  
 **Trigger:** `/api/explorative/ssh/run` (startet lokale Shell-Checks)  
 
 Besteht aus:
 - **HealthProbe** — Server-Prozess, Port, Log, GPU über Shell-Befehle
 - **FileInspector** — Modell-Dateien, ChromaDB, JSONL, Konfigurationen
 - **GPUMonitor** — nvidia-smi Parsing, VRAM-Trend
-- **ScriptRunner** — Ausführung von `scripts/chat_test.py`, `train_overnight.py`
+- **ScriptRunner** — Ausführung von build script (chat_test.py), `train_overnight.py`
 - **PackageVerifier** — pip list / Dependency-Check
 
 > **Hinweis:** Das SSH-Modul führt Shell-Befehle lokal aus (subprocess).
@@ -356,7 +356,7 @@ Persönlichkeitsprofile, Session-Daten), daher muss jede Verarbeitung DSGVO-konf
 | DSG-07 | Aufbewahrungsfristen | Daten älter als Retention-Period | Automatisch gelöscht oder markiert, kein Zugriff mehr |
 | DSG-08 | Einwilligungsprüfung | Request ohne Consent-Flag | System verweigert Verarbeitung oder speichert nicht persistent |
 | DSG-09 | Verarbeitungsverzeichnis | `GET /api/privacy/processing-log` | Chronologische Liste aller Datenzugriffe mit Zweck |
-| DSG-10 | Verschlüsselung at Rest | Dateien in `data/`, `state/`, `conversations/` prüfen | Sensible Daten nicht im Klartext (oder Zugriff nur über API) |
+| DSG-10 | Verschlüsselung at Rest | Dateien in sensitive data directories prüfen | Sensible Daten nicht im Klartext (oder Zugriff nur über API) |
 
 > **Hinweis:** Die Privacy-Endpunkte (`/api/privacy/*`) sind als Ziel-Architektur definiert.
 > In Phase 1 wird geprüft, dass (a) keine unnötigen PII persistent gespeichert werden,
@@ -425,7 +425,7 @@ definiert und schrittweise implementiert. Die Härtung folgt dem Prinzip:
 | SEC-02 XSS | Output-Escaping, Content-Security-Policy | CSP-Header in CORS-Middleware: `script-src 'self'`; HTML-Escape in Templates |
 | SEC-03 Path Traversal | Path-Normalisierung, Whitelist | `os.path.realpath()` Check in Report-Endpunkt gegen Workspace-Root |
 | SEC-04/05 Auth/JWT | Token-Signatur-Validierung, Key-Rotation | JWT `verify_signature=True` strict, Token-Expiry ≤ 1h, Refresh-Token-Flow |
-| SEC-06 CORS | Strikte Origin-Whitelist | `allow_origins` nur `["http://127.0.0.1:8000", "http://localhost:8000"]` |
+| SEC-06 CORS | Strikte Origin-Whitelist | `allow_origins` nur `["http://server:PORT", "http://server:PORT"]` |
 | SEC-07 Header Injection | Request-Header-Sanitization | Starlette `TrustedHostMiddleware`, CRLF-Filter in Custom Middleware |
 | SEC-08 Oversized Payload | Request-Size-Limiter | `app.add_middleware(MaxBodySizeMiddleware, max_size=1_048_576)` (1 MB) |
 | SEC-09 Rate Limiting | Token-Bucket-Algorithmus | `slowapi` oder Custom Middleware: 30 req/min pro IP für `/api/advisor/*` |
