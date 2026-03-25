@@ -656,7 +656,7 @@ POST /api/explorative/scenarios
 ### Dateistruktur
 
 ```
-ethos_ai/
+<project>/
   api/
     explorative/
       __init__.py
