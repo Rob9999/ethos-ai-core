@@ -11,7 +11,7 @@ tags: [workbench, delivery, customer, concept, 3d-review, standalone]
 
 ## 1 · Ausgangslage
 
-Die **Workbench World** ist ein browser-basierter 3D-Projektviewer innerhalb von EthosAI CLIM. Aktueller Stand (v1.63.0):
+Die **Workbench World** ist ein browser-basierter 3D-Projektviewer innerhalb von EthosAI® CLIM. Aktueller Stand (v1.63.0):
 
 | Feature | Status |
 |---------|--------|
@@ -52,7 +52,7 @@ Die **Workbench World** ist ein browser-basierter 3D-Projektviewer innerhalb von
 ├─────────────────────────────────────────────────────────┤
 │  Stufe 3: Vollintegration (AI-Review)                   │
 │  ────────────────────────────────────────────            │
-│  • Workbench + EthosAI CLIM                             │
+│  • Workbench + EthosAI® CLIM                            │
 │  • AI-gestützte Ergonomie-Analyse                       │
 │  • Automatische Findings-Generierung                    │
 │  • Profession-Package: „Review-Ingenieur"               │

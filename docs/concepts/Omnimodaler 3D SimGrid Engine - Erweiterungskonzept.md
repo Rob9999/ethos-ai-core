@@ -219,7 +219,7 @@ Aufgabe: "Analysiere diese Welle auf Biegung und Torsion"
 
 ### 4.1 Prinzip
 
-Gemäß der EthosAI-Worlds-LLM-Policy (§5.2 der Produkt-Architektur-Analyse): **Nur EU-konforme Komponenten**. Alle Libraries müssen permissive Lizenzen haben und dürfen keine Telemetrie an Nicht-EU-Server senden.
+Gemäß der EthosAI® Worlds LLM Policy (§5.2 der Produkt-Architektur-Analyse): **Nur EU-konforme Komponenten**. Alle Libraries müssen permissive Lizenzen haben und dürfen keine Telemetrie an Nicht-EU-Server senden.
 
 ### 4.2 Ausgewählte Technologie-Stacks
 

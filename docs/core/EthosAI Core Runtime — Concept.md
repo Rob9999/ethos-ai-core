@@ -1,4 +1,4 @@
-# EthosAI Core Runtime — Concept
+# EthosAI® Core Runtime — Concept
 
 > Defines the minimal `ethos_ai` subset that any EthosAI product
 > (Worlds, future products) needs to run standalone.
@@ -16,12 +16,12 @@
 
 ## 1  Motivation
 
-EthosAI CLIM is a monorepo that contains multiple products:
+EthosAI® CLIM is a monorepo that contains multiple products:
 
 | Product            | Package              | Nature             |
 |--------------------|----------------------|--------------------|
-| **EthosAI CLIM**   | `ethos_ai`           | AI-Mitbürger, CLIM Stack, Advisor, Training, Engineering |
-| **EthosAI Worlds** | `ethos_ai_worlds`    | 3-D-Welten, Workbench, Marketplace, Standalone Server |
+| **EthosAI® CLIM**  | `ethos_ai`           | AI-Mitbürger, CLIM Stack, Advisor, Training, Engineering |
+| **EthosAI® Worlds** | `ethos_ai_worlds`   | 3-D-Welten, Workbench, Marketplace, Standalone Server |
 | *(Future)*         | *tbd*                | Further standalone products |
 
 `ethos_ai_worlds` depends on a small subset of `ethos_ai` for
@@ -89,7 +89,7 @@ This is needed by `app_factory.mount_worlds()`.  It has zero
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  EthosAI CLIM (full)                 │
+│                  EthosAI® CLIM (full)                │
 │  Advisor · Training · Engineering · SimGrid · CLIM   │
 │  Security V2 (Router, Policy Engine, WORM, mTLS, …) │
 │  Professions · Consciousness · Maturity Model        │
@@ -102,7 +102,7 @@ This is needed by `app_factory.mount_worlds()`.  It has zero
 └─────────────────────────┼────────────────────────────┘
                           │  imported by
 ┌─────────────────────────┼────────────────────────────┐
-│  EthosAI Worlds         │                            │
+│  EthosAI® Worlds        │                            │
 │    api/ (standalone_app, routers)                     │
 │    ui/  (SPA, Three.js, components)                  │
 │    toolbox-packages/ (WorldManager)                  │
@@ -227,7 +227,7 @@ code.
 ### 8.2  Boundary Rule
 
 > **Nothing from the `ethos_ai-core` wheel that is classified as
-> 🔴 vertraulich may appear in a public repository.**
+> 🔴 restricted/non-public may appear in a public repository.**
 >
 > The build pipeline must verify this invariant before any public
 > release.
@@ -242,7 +242,7 @@ Per the IP classification scheme:
 
 | Component                        | IP Class             | Distribution Channel    |
 |----------------------------------|----------------------|-------------------------|
-| Core Runtime (`ethos_ai-core`)   | 🔴 Vertraulich       | Private PyPI / bundle   |
+| Core Runtime (`ethos_ai-core`)   | 🔴 Restricted        | Private PyPI / bundle   |
 | Core Concept (this document)     | 🟡 Intern-nur-Doku   | Internal only           |
 | ABC interfaces (SDK extract)     | 🟢 Öffentlich         | `ethos-ai-world-sdk`    |
 | Manifest JSON-Schema             | 🟢 Öffentlich         | `ethos-ai-world-sdk`    |

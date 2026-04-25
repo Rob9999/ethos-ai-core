@@ -26,8 +26,8 @@ EthosAI wird in sehr unterschiedlichen Umgebungen eingesetzt:
 - Ein **Forschungslabor** einer Universität arbeitet mit Prototypdaten unter
   NDA — der IT-Sicherheitsbeauftragte verlangt BSI-Grundschutz-Konformität.
 - Eine **Behörde oder ein Verteidigungsunternehmen** verarbeitet
-  eingestufte Informationen (VS-NfD, VS-Vertraulich) — hier gelten
-  Geheimschutzvorschriften.
+    eingestufte Informationen (VS-NfD oder höher) — hier gelten
+    Geheimschutzvorschriften.
 
 Ein einziges Sicherheitsniveau kann diese Bandbreite nicht abdecken. Daher
 führt dieses Konzept ein **dreistufiges Sicherheitsmodell** ein, das
@@ -220,7 +220,7 @@ class LLMProviderPolicy(Protocol):
 ### 3.3 Tier 3 — Höchste Sicherheit
 
 **Zielgruppe:** Nachrichtendienste, Verteidigungsministerien, kritische Infrastruktur (KRITIS)  
-**Regulatorischer Rahmen:** VS-NfD / VS-Vertraulich / GEHEIM, BSI Zulassung,
+**Regulatorischer Rahmen:** VS-NfD / höhere nationale Geheimschutzstufen, BSI Zulassung,
 CC EAL4+, nato.int RESTRICTED+  
 **Deployments:** Air-Gapped, gehärtete Hardware, Akkreditierungspflicht  
 

@@ -1,5 +1,5 @@
 ---
-title: "NDA & Customer Data Protection — Module Concept"
+title: "Non-Disclosure & Customer Data Protection — Module Concept"
 brief: >
   Architecture for isolating customer/client project data from the Git
   repository and from external LLM providers (Mistral Cloud, OpenAI, etc.).
@@ -9,12 +9,12 @@ status: draft
 version: "0.1.0"
 author: Robert Alexander Massinger
 date: 2026-03-02
-tags: [nda, data-protection, customers, encryption, llm-routing, security]
+tags: [non-disclosure, data-protection, customers, encryption, llm-routing, security]
 notes: >
   ToDo - check all data exports, all training data generation, all training data pools 
 ---
 
-# NDA & Customer Data Protection — Module Concept
+# Non-Disclosure & Customer Data Protection — Module Concept
 
 ## 1. Motivation
 
@@ -230,7 +230,7 @@ Each toolbox declares in its `toolbox_manifest.json`:
 - `endpoints`: allow-listed URLs (if outbound is true).
 - `data_classification_max`: highest data level the toolbox may handle.
   If a toolbox declares `"internal"`, it is **blocked** from accessing
-  NDA-protected customer folders.
+  restricted customer folders.
 
 ### 7.2 AI-Driven Toolbox Guard
 
