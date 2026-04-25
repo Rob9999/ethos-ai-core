@@ -39,10 +39,10 @@ Begründung:
 ├─────────────────────────────────────────────────────┤
 │  Variante 2: Daten auf Netzlaufwerk (NAS/SMB)      │
 │                                                     │
-│  Client ←→ server:PORT ←→ \\NAS\projects\        │
+│  Client ←→ server:PORT ←→ <network-share>/projects │
 │  (EthosAI lokal, Daten remote gemountet)            │
 │                                                     │
-│  → .env: ETHOSAI_CUSTOMERS_DIR=\\NAS\projects       │
+│  → .env: ETHOSAI_CUSTOMERS_DIR=<network-share>/projects │
 │  → Latenz bei STL-Load, Caching empfohlen           │
 ├─────────────────────────────────────────────────────┤
 │  Variante 3: Daten nur auf dem Server               │
@@ -68,7 +68,7 @@ GET /api/workbench/projects/{project}/file/{path}
 | Speicherort | Server-Config | Client-Änderung |
 |-------------|--------------|-----------------|
 | Lokal | `ETHOSAI_CUSTOMERS_DIR=./customers` (Default) | Keine |
-| Netzlaufwerk | `ETHOSAI_CUSTOMERS_DIR=\\\\NAS\\projects` | Keine |
+| Netzlaufwerk | `ETHOSAI_CUSTOMERS_DIR=<network-share>/projects` | Keine |
 | Nur Server | Default (Server hat die Daten) | Keine |
 
 ### 1.3 Caching-Schicht
