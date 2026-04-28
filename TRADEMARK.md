@@ -1,14 +1,14 @@
-# EthosAI™ Trademark Policy
+# EthosAI® Trademark Policy
 
-**"EthosAI"** is a trademark of **Robert Alexander Massinger**.
+**"EthosAI®"** is a registered trademark of **Robert Alexander Massinger**.
 
 ## Usage Guidelines
 
 ### Permitted Use
 
-- "Built with EthosAI™ SDK"
-- "Compatible with EthosAI™ Worlds"
-- "Powered by EthosAI™"
+- "Built with EthosAI® SDK"
+- "Compatible with EthosAI® Worlds"
+- "Powered by EthosAI®"
 - Linking to the official EthosAI repository or website
 - Describing the origin of the software in compliance notices
 
@@ -27,7 +27,7 @@ Include the following notice in your LICENSE or NOTICE file
 when distributing software that includes EthosAI components:
 
 ```
-"EthosAI" is a trademark of Robert Alexander Massinger.
+"EthosAI®" is a registered trademark of Robert Alexander Massinger.
 This license does not grant permission to use the trade name,
 trademark, or service marks of the licensor, except as required
 for reasonable and customary use in describing the origin of the
@@ -38,8 +38,11 @@ work and reproducing the content of the notice file.
 
 | Symbol | When to Use |
 |--------|-------------|
-| ™ | From now — unregistered trademark claim |
-| ® | After official trademark registration |
+| ® | Default form for user-facing EthosAI brand and product mentions |
+| EthosAI (registered trademark) | ASCII fallback where Unicode is unsafe |
+
+The abbreviation `(R)` means `(registered trademark)`, but the written-out
+form is preferred for legal clarity in machine-readable metadata.
 
 ## Questions
 

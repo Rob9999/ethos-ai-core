@@ -257,7 +257,7 @@ Before the Core Runtime can be offered under a commercial license
 2. **License headers** in every core source file:
    `SPDX-License-Identifier: MPL-2.0` with commercial-option notice
 3. **Trademark notice** in README and wheel metadata:
-   `EthosAI™ is a registered trademark of Robert Alexander Massinger`
+   `EthosAI® is a registered trademark of Robert Alexander Massinger`
 4. **Bereinigung** (sanitization) of this concept document:
    - Remove internal backlog references ((internal tracking))
    - Remove absolute file paths
