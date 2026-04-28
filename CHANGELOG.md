@@ -12,6 +12,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.199.0] — 2026-04-28
+
+### Changed
+- Public concept scope curated for business/IP safety.
+- README now links only to documents approved for the public mirror.
+
+### Removed
+- Internal runtime, customer-delivery, security-implementation and product-roadmap detail documents removed from the public scope.
+
 ### Added
 - Initial concept documents (14 documents)
 - Repository structure and documentation

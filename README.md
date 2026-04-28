@@ -14,20 +14,24 @@ EthosAI®-Projekts — ein Framework für KI-Systeme, die ethische
 Prinzipien, Bewusstseinssimulation und EU-Compliance als
 integrierten Bestandteil implementieren.
 
+Der Public Scope ist bewusst kuratiert: Dieses Repository veröffentlicht
+Grundlagen, Begriffe und Architekturprinzipien. Interne Runtime-Details,
+Kundenauslieferungsmodelle, Sicherheitsimplementierungen und kommerzielle
+Produkt-Roadmaps gehören nicht in diesen Mirror.
+
 ### Kernkonzepte
 
 | Dokument | Thema |
 |----------|-------|
-| CLIM — Current Life Imagination Model | Lebenssimulation als Grundlage für AI-Empathie |
-| Concept for an Engineer-AI as a Fellow Citizen | AI als mündiger „Mitbürger" |
-| EthicDomains | Ethische Domänen und Bewertungsmodell |
-| Digital Twin SimGrid — Konzept | Simulation als Wahrnehmungsebene |
-| N-to-N Relationship Ethos-AI ↔ Advisors | Multi-Agent Beziehungsmodell |
-| Living Toolbox System | Dynamisches Werkzeugsystem |
-| Learning Packages — Scalable Extension | Lernerweiterungen |
-| Language Concept | Mehrsprachiges Kommunikationsmodell |
-| Maturity Model — Multi-Dimensional Growth | Reifegradmodell für AI-Entwicklung |
-| World Framework — Begehbare Welten | 3D-Welten als AI-Umgebung |
+| [CLIM — Current Life Imagination Model](docs/concepts/CLIM%20-%20Current%20Life%20Imagination%20Model.md) | Lebenssimulation als Grundlage für AI-Empathie |
+| [Concept for an Engineer-AI as a Fellow Citizen](docs/concepts/Concept%20for%20an%20Engineer-AI%20as%20a%20Fellow%20Citizen.md) | AI als mündiger „Mitbürger" |
+| [EthicDomains](docs/concepts/EthicDomains.md) | Ethische Domänen und Bewertungsmodell |
+| [Digital Twin SimGrid — Konzept](docs/concepts/Digital%20Twin%20SimGrid%20-%20Konzept%20für%20eine%20denkende%20Simulationsumgebung.md) | Simulation als Wahrnehmungsebene |
+| [N-to-N Relationship Ethos-AI ↔ Advisors](docs/concepts/Concept%20for%20an%20N-to-N%20Relationship%20between%20Ethos-AI%20Individuals%20and%20Advisors.md) | Multi-Agent-Beziehungsmodell |
+| [Living Toolbox System](docs/concepts/Living%20Toolbox%20System%20—%20Concept.md) | Dynamisches Werkzeugsystem |
+| [Learning Packages — Scalable Extension](docs/concepts/Learning%20Packages%20-%20Scalable%20Extension%20Architecture.md) | Lernerweiterungen |
+| [Language Concept](docs/concepts/Language%20Concept.md) | Mehrsprachiges Kommunikationsmodell |
+| [The Living Advisor](docs/concepts/The%20Living%20Advisor%20-%20A%20Conceptual%20Framework%20and%20Role%20Description.md) | Rollenmodell für assistive KI |
 
 ### Warum Open Source?
 
@@ -42,9 +46,7 @@ integrierten Bestandteil implementieren.
 
 ```
 docs/
-├── concepts/           ← Bereinigte Konzeptdokumente
-├── architecture/       ← High-Level Architekturdiagramme
-└── assets/             ← Diagramme und Bilder
+└── concepts/           ← Kuratierte öffentliche Konzeptdokumente
 ```
 
 ---
