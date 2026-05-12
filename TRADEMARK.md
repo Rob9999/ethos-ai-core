@@ -1,14 +1,17 @@
-# EthosAI® Trademark Policy
+# EthosAI™ Trademark Policy
 
-**"EthosAI®"** is a registered trademark of **Robert Alexander Massinger**.
+**"EthosAI™"** is a trademark application pending before the German
+Patent and Trade Mark Office (DPMA). The mark is owned by
+**Robert Alexander Massinger**. The repository records the application
+filing date as **2026-03-23**.
 
 ## Usage Guidelines
 
 ### Permitted Use
 
-- "Built with EthosAI® SDK"
-- "Compatible with EthosAI® Worlds"
-- "Powered by EthosAI®"
+- "Built with EthosAI™ SDK"
+- "Compatible with EthosAI™ Worlds"
+- "Powered by EthosAI™"
 - Linking to the official EthosAI repository or website
 - Describing the origin of the software in compliance notices
 
@@ -23,26 +26,22 @@
 
 ## Trademark Notice
 
-Include the following notice in your LICENSE or NOTICE file
-when distributing software that includes EthosAI components:
+Include the following notice when distributing software or documents that
+include EthosAI components:
 
-```
-"EthosAI®" is a registered trademark of Robert Alexander Massinger.
-This license does not grant permission to use the trade name,
-trademark, or service marks of the licensor, except as required
-for reasonable and customary use in describing the origin of the
-work and reproducing the content of the notice file.
+```text
+EthosAI™ is a trademark application pending before the German Patent and Trade Mark Office.
+The EthosAI™ trademark is owned by Robert Alexander Massinger.
+This open-source license does not grant trademark rights.
 ```
 
 ## Symbol Usage
 
 | Symbol | When to Use |
 |--------|-------------|
-| ® | Default form for user-facing EthosAI brand and product mentions |
-| EthosAI (registered trademark) | ASCII fallback where Unicode is unsafe |
-
-The abbreviation `(R)` means `(registered trademark)`, but the written-out
-form is preferred for legal clarity in machine-readable metadata.
+| ™ | Default public form while the DPMA application is pending |
+| EthosAI (trademark application pending) | ASCII/legal-text fallback where Unicode is unsafe |
+| ® | Reserved until official DPMA registration proof has been received, hashed, reviewed, and approved under `BRAND.md` |
 
 ## Questions
 
@@ -51,4 +50,4 @@ please open an Issue or contact the project maintainer.
 
 ---
 
-*Version 1.0 — 2026-03-22*
+*Version 1.1 — 2026-05-12*

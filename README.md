@@ -1,4 +1,4 @@
-# EthosAI® Core Concepts
+# EthosAI™ Core Concepts
 
 > Ethik-Framework, Awareness-Modelle und Architekturkonzepte
 > für verantwortungsvolle KI — Open Source unter CC-BY 4.0.
@@ -10,7 +10,7 @@
 ## Überblick
 
 Dieses Repository enthält die öffentlichen **Konzeptdokumente** des
-EthosAI®-Projekts — ein Framework für KI-Systeme, die ethische
+EthosAI™-Projekts — ein Framework für KI-Systeme, die ethische
 Prinzipien, Bewusstseinssimulation und EU-Compliance als
 integrierten Bestandteil implementieren.
 
@@ -59,7 +59,7 @@ unter Einhaltung der CC-BY 4.0 Lizenz (Namensnennung erforderlich).
 ### Zitierung
 
 ```
-EthosAI® Core Concepts, Robert Alexander Massinger, 2024-2026.
+EthosAI™ Core Concepts, Robert Alexander Massinger, 2024-2026.
 https://github.com/Rob9999/ethos-ai-core
 Licensed under CC-BY 4.0.
 ```
@@ -88,8 +88,10 @@ unserem [Contributor License Agreement](.github/CLA.md).
 Dieses Repository steht unter der
 [Creative Commons Attribution 4.0 International License](LICENSE).
 
-EthosAI® ist eine eingetragene Marke von Robert Alexander Massinger.
-Siehe [Trademark Policy](TRADEMARK.md).
+EthosAI™ is a trademark application pending before the German Patent and Trade Mark Office.
+The EthosAI™ trademark is owned by Robert Alexander Massinger.
+This open-source license does not grant trademark rights.
+See [Trademark Policy](TRADEMARK.md) and [Brand Status](BRAND.md).
 
 ---
 

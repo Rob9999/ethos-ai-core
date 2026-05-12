@@ -1,4 +1,4 @@
-# Contributing to EthosAI® Core Concepts
+# Contributing to EthosAI™ Core Concepts
 
 Danke für Ihr Interesse! Beiträge zu den Konzeptdokumenten
 sind herzlich willkommen.
@@ -16,8 +16,9 @@ sind herzlich willkommen.
    keine Implementierungen. Code-Beispiele sind nur als
    Pseudocode erlaubt.
 
-4. **Markenrecht** — Verwenden Sie „EthosAI®" mit dem
-   Trademark-Symbol bei der ersten Erwähnung.
+4. **Markenrecht** — Verwenden Sie „EthosAI™" mit dem
+   Trademark-Symbol bei der ersten Erwähnung. Die DPMA-Anmeldung
+   ist pending; `®` ist bis zur Evidence-Freigabe gesperrt.
 
 ## Pull Requests
 
